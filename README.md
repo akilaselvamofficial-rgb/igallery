@@ -25,8 +25,141 @@ Validate the HTML and CSS code.
 Publish the website in the given URL.
 
 ## PROGRAM:
+```
+gallery.html
+
+<html>
+    <head>
+        <title>Interactive Image</title>
+        <link href="gallery.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="header">
+            <h1>Image Gallery</h1>
+        </header>
+        <div class="gallery-container">
+            <div class="gallery-card">
+                <img id="galleryImage" src="merina.avif" alt="Gallery Image">
+                <p class="caption" id="caption">MARINA BEACH</p>
+                <div class="buttons">
+                    <button onclick="prevImage()">Previous</button>
+                    <button onclick="nextImage()">Next</button>
+                </div>
+
+            </div>
+        </div>
+        <footer class="footer">
+            AKILA S(25018659)
+        </footer>
+        <script>
+            let gallery = [
+                { src: "merina.avif",text:"MERINA BEACH"},
+                { src: "Government-Museum.avif",text:"GOVERMENT MUSEUM"},
+                { src: "santhome.jpg",text:"SANTHOME CHRUCH"},
+                { src: "kapaleeshwarar-temple.jpg",text:"KAPALEESHWARAR TEMPLE"},
+                { src:"SnowKingdomTicketsinChennai.jpg",text:"SNOWKINGDOM"},
+            ];
+            let index=0;
+            function nextImage() {
+                index++;
+                if (index >=gallery.length) {
+                    index=0;
+
+                }
+                updateImage();
+            }
+            function prevImage(){
+                index--;
+                if(index < 0) {
+                    index = gallery.length-1;
+                }
+                updateImage();
+            }
+            function updateImage() {
+                document.getElementById("galleryImage").src=gallery[index].src;
+                document.getElementById("caption").innerText=gallery[index].text;
+            }
+        </script>
+    </body>
+</html>
+
+gallery.css
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+.gallery-container{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.gallery-card{
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    text-align: center;
+    width: 380px;
+}
+.gallery-card img{
+    width:250px;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.caption{
+    margin: 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.buttons button{
+    background-color: brown;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.buttons button:hover {
+    background-color: blueviolet ;
+}
+.footer{
+    background-color: gray;
+    color: white;
+    text-align: center;
+    padding: 12px;
+}
+
+```
 
 ## OUTPUT:
+
+![alt text](<Screenshot (36).png>)
+
+![alt text](<Screenshot (37).png>)
+
+![alt text](<Screenshot (38).png>)
 
 ## RESULT:
 The program for designing an interactive image gallery using HTML, CSS and JavaScript is executed successfully.
